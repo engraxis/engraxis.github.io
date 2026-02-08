@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #333;
+    background: #f7f7f7;
+}
+
+/* NAVBAR */
+#navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #cccccc; /* solid grey */
+    z-index: 1000;
+}
+
+
+#navbar .nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+#navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+#navbar .nav-links li {
+    margin-left: 25px;
+}
+
+#navbar .nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+}
+
+#navbar .nav-links a.active {
+    color: #006600; /* only active link */
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('../images/hero_bg.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2); /* lighter overlay for visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+/* HERO CONTENT */
+.hero-content {
+    display: flex;
+    flex-direction: column;       /* stack vertically */
+    align-items: flex-start;      /* align to left */
+    justify-content: flex-start;  /* push to top */
+    width: 100%;
+    height: 100%;
+    padding: 5vw;                 /* responsive padding from top & left */
+    box-sizing: border-box;
+}
+
+
+/* PROFILE CIRCLE */
+.profile-circle {
+    width: 15vw;                   /* 20% of viewport width */
+    max-width: 320px;              /* cap for large screens */
+    min-width: 120px;              /* minimum for small screens */
+    aspect-ratio: 1/1;             /* perfect circle */
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* NAME BLOCK */
+.identity {
+    display: flex;
+    flex-direction: column;      /* picture on top, text below */
+    align-items: center;         /* center everything inside identity */
+    gap: 1vw;
+}
+
+#contact-page .identity{
+    flex-direction: row;
+}
+
+.name-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* center the text under the picture */
+    margin-top: 1vw;
+}
+
+/* name-block + social icons remain mostly the same */
+.name-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* center text */
+    color: white;
+
+    margin-bottom: 1vw;
+}
+
+#contact-page .name-block {
+    align-items: flex-start;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1vw;
+    margin-top: 0.5vw;
+}
+
+
+.name-block h1 {
+    font-size: clamp(20px, 2.5vw, 50px);
+    margin-bottom: 0.5vw;
+}
+
+.tagline {
+    font-size: clamp(10px, 1.2vw, 22px);
+}
+
+
+/* SOCIAL ICONS */
+.social-icons {
+    display: flex;
+    gap: 1vw;                       /* responsive spacing */
+    margin-top: 0.5vw;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.5);
+}
+
+/* Icons size */
+/* Font Awesome icons */
+.social-icons i {
+    font-size: clamp(24px, 3vw, 40px); /* scales with viewport */
+}
+/* Change social icons for the contact page
+#contact-page .social-icons i {
+     font-size: clamp(40px, 3vw, 70px);
+}*/
+
+/* SVG icons */
+.social-icons svg {
+    width: clamp(24px, 3vw, 40px);
+    height: auto;
+}
+/* Change social icons for the contact page
+#contact-page .social-icons svg {
+    width: clamp(50px, 3vw, 100px);
+}*/
+
+/* Image icons */
+.social-icons img {
+    width: clamp(24px, 3vw, 40px);
+    height: auto;
+}
+/* Change social icons for the contact page
+#contact-page .social-icons img {
+    width: clamp(50px, 3vw, 100px);
+}*/
+
+.social-icons img[src*="r_gate"] {
+  transform: scale(0.86);
+}
+
+
+#footer {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    color: black;
+    font-size: 0.9rem;
+}
+
+/* MEDIA QUERY FOR SMALL SCREENS */
+@media (max-width: 900px) {
+    .hero-content {
+        padding: 5vw 4vw;            /* reduce padding on small screens */
+    }
+
+    .profile-circle {
+        width: 25vw;                 /* larger relative size on small screens */
+        max-width: 140px;
+    }
+
+    .name-block h1 {
+        font-size: 6vw;               /* scale for small screens */
+    }
+
+    .tagline {
+        font-size: 3.5vw;
+    }
+
+    .social-icons i,
+    .social-icons img,
+    .social-icons svg {
+        width: 10vw;                  /* responsive small icons */
+        max-width: 40px;
+    }
+
+    .identity {
+        gap: 3vw;                     /* increase vertical spacing for small screens */
+    }
+}
+
+/* Dropdown container */
+.nav-links li.dropdown {
+    position: relative;
+}
+
+/* Dropdown button */
+.nav-links li .dropbtn {
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold; /* keep main nav bold */
+}
+
+/* Dropdown content (hidden by default) */
+.nav-links li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff; /* adjust to your nav bg */
+    min-width: 180px; /* increase width so text fits on one line */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap; /* prevents text from breaking into two lines */
+}
+
+/* Individual dropdown links */
+.nav-links li .dropdown-content li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333; /* adjust text color */
+    text-decoration: none;
+    font-weight: normal; /* make dropdown entries not bold */
+}
+
+/* Hover effect on links */
+.nav-links li .dropdown-content li a:hover {
+    background-color: #f0f0f0; /* adjust hover color */
+}
+
+/* Show dropdown on hover */
+.nav-links li.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Keep logo items vertically centered */
+}
+
+.logo .flag {
+    font-size: 1.2rem;       
+    display: inline-block;
+    margin-right: 8px;
+    animation: wave 1.5s infinite;
+    transform-origin: 70% 70%;
+    line-height: 1;           /* Remove extra line height */
+    vertical-align: middle;   /* Align emoji vertically with text */
+}
+
+/* Smooth waving effect using skew and rotate */
+@keyframes wave {
+    0%   { transform: rotate(0deg) skewX(0deg); }
+    20%  { transform: rotate(5deg) skewX(5deg); }
+    40%  { transform: rotate(-5deg) skewX(-5deg); }
+    60%  { transform: rotate(5deg) skewX(5deg); }
+    80%  { transform: rotate(-5deg) skewX(-5deg); }
+    100% { transform: rotate(0deg) skewX(0deg); }
+}
+
+/* Make your name green */
+.logo .name {
+    color: #006600; /* only active link */
+    font-weight: bold; /* Optional: make it stand out */
+}
